@@ -1,21 +1,77 @@
+<style>
+body{
+	background-image: url("/home/bryanlc2/Desktop/Website/backgruond.jpg");
+    background-position: center;
+}
+h1{
+	text-align:center;
+	font-size:300%;
+}
+.images{
+	float:left;
+}
+.welcome{
+	font-size:150%;
+	text-align:center;
+}
+img{
+	display: block;
+    margin: auto;
+    width: 300px;
+    height:450px;
+    float:left;
+}
+.bottom{
+	font-size:125%;
+	text-align:center;
+	margin-right:100px;
+	margin-left:100px;
+}
+h2{
+font-size:175%;
+text-align:center;
+}
+.links{
+	margin-left:840px;
+}
+ul li {
+    display:inline-block;
+}
+</style>
 <html>
 	<head>
 		<meta charset="UTF-8">
 	  <title>Personal Website</title>
-	</head>
+		 <link rel="stylesheet" type="text/css" href="/css/styles.css">
+        <link rel="stylesheet" type="text/css" href="bower_components/loaders.css/loaders.min.css">
+        <link href='https://fonts.googleapis.com/css?family=Raleway' rel='stylesheet' type='text/css'>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+        <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+       </head>
 	<body>
 		<div>
-			<h1>Bryan Cheng Personal Website</h1>
+			<h1>My Personal Website</h1>
 		</div>
-		<div>
+		<div class= "welcome">
 			<p>Hello, my name is Bryan Cheng and I currently attend University of Illinois at Urbana Champaign.</p>
 		</div>
-		<div>
-			<p>I was raised in Southern California so the weather right now is taking a huge toll on me. Please help I've never experienced weather like this for an extended period of time. I do not know how people are surviving in this weather. /s I heard it goes below 0 degrees Fahrenheit here and I am not ready.</p>
-			<img = "weather.png" alt= "Ten Day Weather">
+		<div class = "links">
+			<ul id="lpro">
+			<li><a href="https://github.com/yaba12" target="_blank"><i class="fa fa-github" style="font-size:36px;color:red"></i></a></li>
+          	<li><a href="https://linkedin.com/in/yaba12" target="_blank"><i class="fa fa-linkedin" style="font-size:36px;color:purple"></i></a></li>
+          </ul>
+      </div>
+		<div class = "bottom">
+			<h2>About Me</h2>
+			<p>In my free time I enjoy talking to my friends over Discord, playing games, mainly League of Legends, with some other games such as CSGO or Overwatch. I love reddit. When reddit goes down, I attempt to check reddit to see what happened on reddit only to find out that I am not that smart. My favorite animal is the <a target="_blank" href="/home/bryanlc2/Desktop/Website/chikin.jpg">chicken</a>, although I prefer spelling it chikin.</p>
 		</div>
-		<div>
-			<p>In my free time I enjoy talking to my friends over Discord, playing games, mainly League of Legends, with some other games such as CSGO or Overwatch. I love reddit. When reddit goes down, I attempt to check reddit to see what happened on reddit only to find out that I am not that smart.</p>
+		<div class = "weather">
+			<p>I was raised in Southern California so the weather right now is taking a huge toll on me. Please help I've never experienced weather like this for an extended period of time. I do not know how people <area></area>e surviving in this weather. /s I heard it goes below 0 degrees Fahrenheit here and I am not ready.</p>
+		</div>
+		<div class = "images">
+			<img src= "/home/bryanlc2/Desktop/Website/weather.jpg" alt= "Ten Day Weather">
+			<img src= "/home/bryanlc2/Desktop/Website/weather2.jpeg" alt= "Ten Day Weather" >
 		</div>
 	</body>
 </html>
