@@ -1,73 +1,27 @@
-<style>
-body{
-	background-image: url("/pictures/backgruond.jpg");
-    background-position: center;
-}
-h1{
-	text-align:center;
-	font-size:300%;
-}
-.images{
-	float:left;
-}
-.welcome{
-	font-size:150%;
-	text-align:center;
-}
-img{
-	display: block;
-    margin: auto;
-    width: 300px;
-    height:450px;
-    float:left;
-}
-.bottom{
-	font-size:125%;
-	text-align:center;
-	margin-right:100px;
-	margin-left:100px;
-}
-h2{
-font-size:175%;
-text-align:center;
-}
-.links{
-	text-align:center;
-	}
-ul li {
-    display:inline-block;
-}
-</style>
 <html>
-	<head>
-		<meta charset="UTF-8">
-	  <title>Personal Website</title>
-		 	        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<script src='https://d3js.org/d3.v5.min.js'></script>
+<style> circle {fill: lightblue; stroke: black;} </style>
+<body onload='init()'>
+<svg width=300 height=300>
+</svg>
+<script>
 
-       </head>
-	<body>
-		<div>
-			<h1>My Personal Website</h1>
-		</div>
-		<div class= "welcome">
-			<p>Hello, my name is Bryan Cheng and I currently attend University of Illinois at Urbana Champaign.</p>
-		</div>
-		<div class = "links">
-			<ul id="lpro">
-			<li><a href="https://github.com/yaba12" target="_blank"><i class="fa fa-github" style="font-size:36px;color:red"></i></a></li>
-          	<li><a href="https://linkedin.com/in/yaba12" target="_blank"><i class="fa fa-linkedin" style="font-size:36px;color:purple"></i></a></li>
-          </ul>
-      </div>
-		<div class = "bottom">
-			<h2>About Me</h2>
-			<p>In my free time I enjoy talking to my friends over Discord, playing games, mainly League of Legends, with some other games such as CSGO or Overwatch. I love reddit. When reddit goes down, I attempt to check reddit to see what happened on reddit only to find out that I am not that smart. My favorite animal is the <a target="_blank" href="/pictures/chikin.jpg">chicken</a>, although I prefer spelling it chikin.</p>
-		</div>
-		<div class = "weather">
-			<p>I was raised in Southern California so the weather right now is taking a huge toll on me. Please help I've never experienced weather like this for an extended period of time. I do not know how people <area></area>e surviving in this weather. /s I heard it goes below 0 degrees Fahrenheit here and I am not ready.</p>
-		</div>
-		<div class = "images">
-			<img src= "/pictures/weather.jpg" alt= "Ten Day Weather">
-			<img src= "/pictures/weather2.jpeg" alt= "Ten Day Weather" >
-		</div>
-	</body>
+async function init() {
+const data = await d3.csv('https://flunky.github.io/cars2017.csv');
+var width = 200;
+var height = 200;
+var margin = 50;
+var logscale = d3.scaleLog().domain([10,150]).range([0,200]);
+var logscaley = d3.scaleLog().domain([10,150]).range([200,0]);
+
+d3.select('svg').attr("height",200).attr("width",200).append("g").attr("transform","translate("+margin+","+margin+")").selectAll("circle").data(data).enter().append("circle").attr("cx", function(d,i) {return logscale(d.AverageCityMPG);}).attr("cy",function(d,i) {return logscaley(d.AverageHighwayMPG);}).attr("r", function(d,i) {return (+d.EngineCylinders) + 2;});
+
+var xAxis = d3.axisBottom().scale(logscale).tickValues([10,20,50,100]).tickFormat(d3.format("~s"));
+var yAxis = d3.axisLeft().scale(logscaley).tickValues([10,20,50,100]).tickFormat(d3.format("~s"));
+d3.select("svg").append("g").attr("transform", "translate("+margin+","+margin+")").call(yAxis);
+
+d3.select("svg").append("g").attr("transform", "translate("+margin+","+(height+margin)+")").call(xAxis);
+}
+</script>
+</body>
 </html>
