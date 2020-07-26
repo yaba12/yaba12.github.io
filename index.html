@@ -2,7 +2,19 @@
 <script src='https://d3js.org/d3.v5.min.js'></script>
 <style> circle {fill: lightblue; stroke: black;} </style>
 <body onload='init()'>
-<svg width=300 height=300>
+  <h1> Chart 1 </h1>
+
+<fieldset>
+  <legend>Different Graphs</legend>
+<form action="4981.html">
+    <input type="submit" value="chart 2" />
+</form>
+<form action="4982.html">
+    <input type="submit" value="chart 3" />
+</form>
+
+</fieldset>
+<svg width=1500 height=1500>
 </svg>
 <script>
 
@@ -14,7 +26,7 @@ var margin = 50;
 var logscale = d3.scaleLog().domain([10,150]).range([0,200]);
 var logscaley = d3.scaleLog().domain([10,150]).range([200,0]);
 
-d3.select('svg').attr("height",200).attr("width",200).append("g").attr("transform","translate("+margin+","+margin+")").selectAll("circle").data(data).enter().append("circle").attr("cx", function(d,i) {return logscale(d.AverageCityMPG);}).attr("cy",function(d,i) {return logscaley(d.AverageHighwayMPG);}).attr("r", function(d,i) {return (+d.EngineCylinders) + 2;});
+d3.select('svg').attr("height",300).attr("width",300).append("g").attr("transform","translate("+margin+","+margin+")").selectAll("circle").data(data).enter().append("circle").attr("cx", function(d,i) {return logscale(d.AverageCityMPG);}).attr("cy",function(d,i) {return logscaley(d.AverageHighwayMPG);}).attr("r", function(d,i) {return (+d.EngineCylinders) + 2;});
 
 var xAxis = d3.axisBottom().scale(logscale).tickValues([10,20,50,100]).tickFormat(d3.format("~s"));
 var yAxis = d3.axisLeft().scale(logscaley).tickValues([10,20,50,100]).tickFormat(d3.format("~s"));
