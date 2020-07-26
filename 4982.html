@@ -1,0 +1,53 @@
+
+<html>
+<script src='https://d3js.org/d3.v5.min.js'></script>
+<style> circle {fill: lightblue; stroke: black;} </style>
+<body onload='init()'>
+  <h1> Average City MPG based on fuel type</h1>
+
+<fieldset>
+  <legend></legend>
+<form action="498.html">
+    <input type="submit" value="chart 1" />
+</form>
+<form action="4981.html">
+    <input type="submit" value="chart 2" />
+</form>
+
+</fieldset>
+<svg width=1500 height=700>
+</svg>
+<script>
+var xdomain = [0,150];
+var xrange = [600, 0];
+var margin = 50;
+var width = 1500;
+var height = 500;
+var data = ['24.5', '119.2', '19.53076923'];
+var color = ['green', 'blue', 'red'];
+var ydomain = [0,2];
+var yrange = [100,500];
+var ys = d3.scaleLinear().domain(ydomain).range(yrange);
+
+var names = ['','disel', 'electricity','gasoline'];
+var xs = d3.scaleLinear().domain(xdomain).range(xrange);
+d3.select('svg').attr("height",700).attr("width",1000).append("g").attr("transform","translate("+margin+","+margin+")").selectAll('rect').data(data).enter().append('rect')
+.attr('y',function(d,i) {return xs(d) - 100;})
+.attr('x',function(d,i) {return ys(i + 1);})
+.attr('height',function(d,i) {return 600 - xs(d);})
+.attr('width', 100)
+.style('fill',function(d,i) {return color[i];});
+
+
+var ydomain2 = [0,3];
+var yrange2 = [150,750];
+var ys2 = d3.scaleLinear().domain(ydomain2).range(yrange2);
+var xAxis = d3.axisBottom().scale(ys2).ticks(4).tickFormat(function(d,i){ return names[i] });
+d3.select('svg').append("g").attr("transform", "translate("+margin+","+(margin+height)+")").call(xAxis);
+
+var yAxis = d3.axisLeft().scale(xs).tickValues([20,30,50,100,120]).tickFormat(d3.format("~s"));
+d3.select("svg").append("g").attr("transform", "translate("+(margin+150)+","+(margin-100)+")").call(yAxis);
+
+</script>
+</body>
+</html>
