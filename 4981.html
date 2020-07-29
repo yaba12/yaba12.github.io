@@ -8,93 +8,51 @@ tooltip {
             width: 120px; height: 90px;
             background: white;
             border: 1px;}
-            </style><body>
-  <h1> Average City MPG VS Average HighWay MPG</h1>
-<!-- <body onload='init()'>
--->
+            </style>
+<body>
+  <h1> Fuel Type Vs Average Highway MPG/h1>
+
 <fieldset>
-  <legend>Different Graphs</legend>
-<form action="4981.html">
-    <input type="submit" value="Fuel Type Vs Average Highway MPG" />
+  <legend></legend>
+<form action="index.html">
+    <input type="submit" value="Average City MPG VS Average HighWay MPG" />
 </form>
 <form action="4982.html">
     <input type="submit" value="Fuel Type Vs Average City MPG" />
 </form>
 
-
 </fieldset>
-<svg width=300 height=300>
+<svg width=1500 height=700>
 </svg>
 <div id="tooltip"></div>
-
-<input id="clickMe" type="button" value="all" onclick="temp(this.value);" />
-<input id="clickMe" type="button" value="Acura" onclick="temp(this.value);" />
-<input id="clickMe" type="button" value="Alfa Romeo" onclick="temp(this.value);" />
-<input id="clickMe" type="button" value="Aston Martin" onclick="temp(this.value);" />
-<input id="clickMe" type="button" value="Audi" onclick="temp(this.value);" />
-<input id="clickMe" type="button" value="Bentley" onclick="temp(this.value);" />
-<input id="clickMe" type="button" value="BMW" onclick="temp(this.value);" />
-<input id="clickMe" type="button" value="Buick" onclick="temp(this.value);" />
-<input id="clickMe" type="button" value="Cadillac" onclick="temp(this.value);" />
-<input id="clickMe" type="button" value="Chevrolet" onclick="temp(this.value);" />
-<input id="clickMe" type="button" value="Chrysler" onclick="temp(this.value);" />
-<input id="clickMe" type="button" value="Dodge" onclick="temp(this.value);" />
-<input id="clickMe" type="button" value="Ferrari" onclick="temp(this.value);" />
-<input id="clickMe" type="button" value="Fiat" onclick="temp(this.value);" />
-<input id="clickMe" type="button" value="Ford" onclick="temp(this.value);" />
-<input id="clickMe" type="button" value="Genesis" onclick="temp(this.value);" />
-<input id="clickMe" type="button" value="GMC" onclick="temp(this.value);" />
-<input id="clickMe" type="button" value="Honda" onclick="temp(this.value);" />
-<input id="clickMe" type="button" value="Hyundai" onclick="temp(this.value);" />
-<input id="clickMe" type="button" value="Infiniti" onclick="temp(this.value);" />
-<input id="clickMe" type="button" value="Jaguar" onclick="temp(this.value);" />
-<input id="clickMe" type="button" value="Jeep" onclick="temp(this.value);" />
-<input id="clickMe" type="button" value="Kia" onclick="temp(this.value);" />
-<input id="clickMe" type="button" value="Lamborghini" onclick="temp(this.value);" />
-<input id="clickMe" type="button" value="Land Rover" onclick="temp(this.value);" />
-<input id="clickMe" type="button" value="Lexus" onclick="temp(this.value);" />
-<input id="clickMe" type="button" value="Lincoln" onclick="temp(this.value);" />
-<input id="clickMe" type="button" value="Lotus" onclick="temp(this.value);" />
-<input id="clickMe" type="button" value="Maserati" onclick="temp(this.value);" />
-<input id="clickMe" type="button" value="Mazda" onclick="temp(this.value);" />
-<input id="clickMe" type="button" value="McLaren Automotive" onclick="temp(this.value);" />
-<input id="clickMe" type="button" value="Mercedes-Benz" onclick="temp(this.value);" />
-<input id="clickMe" type="button" value="MINI" onclick="temp(this.value);" />
-<input id="clickMe" type="button" value="Mitsubishi" onclick="temp(this.value);" />
-<input id="clickMe" type="button" value="Nissan" onclick="temp(this.value);" />
-<input id="clickMe" type="button" value="Porsche" onclick="temp(this.value);" />
-<input id="clickMe" type="button" value="Ram" onclick="temp(this.value);" />
-<input id="clickMe" type="button" value="Rolls-Royce" onclick="temp(this.value);" />
-<input id="clickMe" type="button" value="Roush Performance" onclick="temp(this.value);" />
-<input id="clickMe" type="button" value="smart" onclick="temp(this.value);" />
-<input id="clickMe" type="button" value="Subaru" onclick="temp(this.value);" />
-<input id="clickMe" type="button" value="Tesla" onclick="temp(this.value);" />
-<input id="clickMe" type="button" value="Toyota" onclick="temp(this.value);" />
-<input id="clickMe" type="button" value="Volkswagen" onclick="temp(this.value);" />
-<input id="clickMe" type="button" value="Volvo" onclick="temp(this.value);" />
-
 <script>
-function temp(test) {
-  d3.select("svg").selectAll("*").remove();
 
-d3.csv("https://flunky.github.io/cars2017.csv").then(function(data) {
-  var tooltip = d3.select("#tooltip");
-
-  var div = d3.select("body").append("div")
-      .attr("class", "tooltip")
-      .style("opacity", 0);
-var width = 200;
-var height = 200;
+var xdomain = [0,150];
+var xrange = [600, 0];
 var margin = 50;
-var logscale = d3.scaleLog().domain([10,150]).range([0,200]);
-var logscaley = d3.scaleLog().domain([10,150]).range([200,0]);
+var width = 1500;
+var height = 500;
 
-var model = ['Acura', 'Alfa Romeo', 'Aston Martin', 'Audi', 'Bentley', 'BMW', 'Bulck', 'Cadillac', 'Chevrolet', 'Chrysler', 'Dodge', 'Ferrari', 'Flat', 'Ford', 'Genesis', 'GMC', 'Honda', 'Hyundai', 'Infiniti', 'Jaguar', 'Jeep', 'Kia', 'Lamborghini', 'Land Rover', 'Lexus', 'Lincoln', 'Lotus', 'Maseratti', 'Mazda', 'McLaren Automotive', 'Mercedes-Benz', 'MINI', 'Mitsubishi', 'Nissan', 'Porsche', 'Ram', 'Rolls-Royce', 'Roush Performance', 'smart', 'Subaru', 'Tesla', 'Toyota', 'Volkswagen', 'Volvo'];
-if(test == "all") {
-d3.select('svg').attr("height",300).attr("width",300).append("g").attr("transform","translate("+margin+","+margin+")")
-.selectAll("circle").data(data).enter().append("circle").attr("cx", function(d,i) {return logscale(d.AverageCityMPG);})
-.attr("cy",function(d,i) {return logscaley(d.AverageHighwayMPG);}).attr("r", function(d,i) {return (+d.EngineCylinders) + 2;})
-.on("mouseover", function(d,i) {                       // Create event handler for "onmouseover"
+var data = ['32.5', '101.5', '26.66'];
+var color = ['green', 'blue', 'red'];
+var data2 = ['24.5', '119.2', '19.53076923'];
+var count = ['4.666666667', '0', '6.01']
+var ydomain = [0,2];
+var yrange = [100,500];
+var tooltip = d3.select("#tooltip");
+
+var ys = d3.scaleLinear().domain(ydomain).range(yrange);
+var div = d3.select("body").append("div")
+    .attr("class", "tooltip")
+    .style("opacity", 0);
+var names = ['','disel', 'electricity','gasoline'];
+var xs = d3.scaleLinear().domain(xdomain).range(xrange);
+d3.select('svg').attr("height",700).attr("width",1000).append("g").attr("transform","translate("+margin+","+margin+")").selectAll('rect').data(data).enter().append('rect')
+.attr('y',function(d,i) {return xs(d) - 100;})
+.attr('x',function(d,i) {return ys(i + 1);})
+.attr('height',function(d,i) {return 600 - xs(d);})
+.attr('width', 100)
+.style('fill',function(d,i) {return color[i];}).on("mouseover", function(d,i) {                       // Create event handler for "onmouseover"
                        tooltip.style("opacity", 1)                      // Set style options: set opacity to 1 to make tooltip visible
                               .style("position", "absolute")            // This will force the position of the DIV to use page X/Y instead of relative to objects
                               .style("left", (d3.event.pageX) + "px")   // Set leftmost x position to mouse's cursor's X coordinate when mosue event occurred
@@ -106,77 +64,34 @@ d3.select('svg').attr("height",300).attr("width",300).append("g").attr("transfor
                               .style("border","3px")                    // Set the border width to be 3 pixels
                               .style("border-color","red")              // Set the border color to be red
                               .style("border-style", "dashed")          // Set the border style to be a dashed line
-                              .html("Fuel Type: " + d.Fuel + "\nAverage Highway MPG: " + d.AverageHighwayMPG + " \nAverage City MPG: " + d.AverageCityMPG);         // Dynamically generate innerHTML where i = Item Index / d = data value (e.g. Item #1 is 4)
+                              .html("Average Engine Cylinder: " + count[i] + "\n Average Highway MPG: " + data[i]);         // Dynamically generate innerHTML where i = Item Index / d = data value (e.g. Item #1 is 4)
                        })
                  .on("mouseout", function() { tooltip.style("opacity", 0) })
-;
 
-var xAxis = d3.axisBottom().scale(logscale).tickValues([10,20,50,100]).tickFormat(d3.format("~s"));
-var yAxis = d3.axisLeft().scale(logscaley).tickValues([10,20,50,100]).tickFormat(d3.format("~s"));
-d3.select("svg").append("g").attr("transform", "translate("+margin+","+margin+")").call(yAxis);
-
+var ydomain2 = [0,3];
+var yrange2 = [150,750];
+var ys2 = d3.scaleLinear().domain(ydomain2).range(yrange2);
+var xAxis = d3.axisBottom().scale(ys2).ticks(4).tickFormat(function(d,i){ return names[i] });
+d3.select('svg').append("g").attr("transform", "translate("+margin+","+(margin+height)+")").call(xAxis);
 d3.select('svg').append("text")
     .attr("class", "x label")
     .attr("text-anchor", "end")
-    .attr("x", 215)
-    .attr("y", 285)
-    .text("Average City MPG");
-d3.select("svg").append("g").attr("transform", "translate("+margin+","+(height+margin)+")").call(xAxis);
+    .attr("x", 625)
+    .attr("y", 600)
+    .text("Type of Gas");
+var yAxis = d3.axisLeft().scale(xs).tickValues([20,30,50,100,120]).tickFormat(d3.format("~s"));
+d3.select("svg").append("g").attr("transform", "translate("+(margin+150)+","+(margin-100)+")").call(yAxis);
 d3.select('svg').append("text")
     .attr("class", "y label")
     .attr("text-anchor", "end")
-    .attr("y", 2)
-    .attr("x", -100)
-    .attr("dy", 20)
+    .attr("y", 150)
+    .attr("x", -175)
+    .attr("dy", 0)
     .attr("transform", "rotate(-90)")
-    .text("Average HighWay MPG");} else {
-  d3.select('svg').attr("height",300).attr("width",300).append("g").attr("transform","translate("+margin+","+margin+")").selectAll("circle").data(data).enter().append("circle")
-  .attr("cx", function(d,i) {if(d.Make==test) {return logscale(d.AverageCityMPG);}}).attr("cy",function(d,i) {if(d.Make==test) {return logscaley(d.AverageHighwayMPG);}})
-  .attr("r", function(d,i) {if(d.Make==test) {return (+d.EngineCylinders) + 2;}}).on("mouseover", function(d,i) {                       // Create event handler for "onmouseover"
-                         tooltip.style("opacity", 1)                      // Set style options: set opacity to 1 to make tooltip visible
-                                .style("position", "absolute")            // This will force the position of the DIV to use page X/Y instead of relative to objects
-                                .style("left", (d3.event.pageX) + "px")   // Set leftmost x position to mouse's cursor's X coordinate when mosue event occurred
-                                .style("top", (d3.event.pageY) + "px")    // Set topmost y position to mouse's cursor's Y coordinate when mosue event occurred
-                                .style("text-align", "center")            // Specify text alignment to center of area
-                                .style("width", "120px")                   // Specify width of the tooltip to be 60 pixels
-                                .style("height", "90px")                  // Specify height of the tooltip to be 40 pixels
-                                .style("background", "white")             // Set the background of tooltip to be white
-                                .style("border","3px")                    // Set the border width to be 3 pixels
-                                .style("border-color","red")              // Set the border color to be red
-                                .style("border-style", "dashed")          // Set the border style to be a dashed line
-                                .html("Fuel Type: " + d.Fuel + "\nAverage Highway MPG: " + d.AverageHighwayMPG + " \nAverage City MPG: " + d.AverageCityMPG);         // Dynamically generate innerHTML where i = Item Index / d = data value (e.g. Item #1 is 4)
-                         })
-                   .on("mouseout", function() { tooltip.style("opacity", 0) })
-  ;
-;
-
-  var xAxis = d3.axisBottom().scale(logscale).tickValues([10,20,50,100]).tickFormat(d3.format("~s"));
-  var yAxis = d3.axisLeft().scale(logscaley).tickValues([10,20,50,100]).tickFormat(d3.format("~s"));
-  d3.select("svg").append("g").attr("transform", "translate("+margin+","+margin+")").call(yAxis);
-  d3.select('svg').append("text")
-      .attr("class", "x label")
-      .attr("text-anchor", "end")
-      .attr("x", 215)
-      .attr("y", 285)
-      .text("Average City MPG");
-  d3.select("svg").append("g").attr("transform", "translate("+margin+","+(height+margin)+")").call(xAxis);
-  d3.select('svg').append("text")
-      .attr("class", "y label")
-      .attr("text-anchor", "end")
-      .attr("y", 2)
-      .attr("x", -100)
-      .attr("dy", 20)
-      .attr("transform", "rotate(-90)")
-      .text("Average HighWay MPG");
-}
-})
-}
-
+    .text("Average HighWay MPG");
 </script>
-<p> This graph is taken and modified from the activity. In order to showcase our data from my csv file, "https://flunky.github.io/cars2017.csv",
-  I have created this graph which shows each data value's Average Highway MPG and Average City MPG, with the City being on the X axis and the
-    Highway being on the Y axis. As you can see, there seems to be a direct correlation between both MPGs, with each of them increasing as the other
-    value also increases. There also seems to be a trend in which the less Engine Cylinders a vehicle has, the higher MPG they get as well. Furthermore
-    there seems to have a strong correlation between the gas a vehicle uses with its MPG.</p>
+<p> Here we display a bar graph that shows the Average High MPG each fuel type of car is able to obtain. On the x Axis, we group all the data based on its fuel type,
+  and Average all the AverageHighwayMPG in our csv and display that into our y axis. As you can see, there is a strong indication that electric cars
+  have the best MPG while driving on the highway. On the other hand, Disel and Gasoline based cars do not get a good ratio. </p>
 </body>
 </html>
