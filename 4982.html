@@ -15,10 +15,10 @@ tooltip {
 <fieldset>
   <legend></legend>
 <form action="index.html">
-    <input type="submit" value="Average City MPG VS Average HighWay MPG" />
+    <input type="submit" value="Chart 1: Average City MPG VS Average HighWay MPG" />
 </form>
 <form action="4981.html">
-    <input type="submit" value="Fuel Type Vs Average Highway MPG" />
+    <input type="submit" value="Chart 2: Fuel Type Vs Average Highway MPG" />
 </form>
 
 </fieldset>
@@ -90,7 +90,7 @@ d3.select('svg').append("text")
     .text("Average City MPG");
 </script>
 <p> Here we display a bar graph that shows the Average City MPG each fuel type of car is able to obtain. On the x Axis, we group all the data based on its fuel type,
-  and Average all the AverageCityMPG in our csv and display that into our y axis. As you can see, there is a strong indication that electric cars
+  and Average all the AverageCityMPG in our csv and display that into our y axis. If you hover over the data, it will show some more information.  As you can see, there is a strong indication that electric cars
   have the best MPG while driving in the city. On the other hand, Disel and Gasoline based cars do not get a good ratio. We wanted to emphasis and explore the seeming
 correlation between fuel types and its MPG.</p>
 </body>
